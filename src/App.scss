@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+:root{
+  --y: #FEBD2E;
+  --w: #FBFCFF;
+  --b: #242424;
+}
+
+body {
+  font-family: 'Barlow', 'Athiti', sans-serif; font-size: 16px;
+  color: #242424;
+  background-color: #F5F3F0;
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+a{
+  color: var(--b);
+  text-decoration: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome, Opera and Firefox */
+}
+
+.App {
+  .container{
+    display: flex;
+    flex-flow: row nowrap;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+  }
+
+  nav{
+    height: 100%;
+    width: 8%;
+    max-width: 120px;
+    display: flex;
+    flex-flow: column nowrap;
+
+    div, a{
+      height: var(--navw);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  section{
+    height: 100%;
+    flex: 1;
+  }
+
+  #main-ico{
+    font-size: calc(var(--navw) * 0.40);
+  }
+  #nav-ico{
+    font-size: calc(var(--navw) * 0.25);
+    width: 1em;
+    height: 1em;
+    color: var(--b);
+  }
+
+  .btn{
+    background-color: var(--w);
+    width: 60%;
+    height: calc(var(--navw) * 0.60);
+    border-radius: 10px;
+    border: #E2DDD3 solid 1px;
+
+    &.selected {
+      background-color: var(--y);
+    }
+  }
+}

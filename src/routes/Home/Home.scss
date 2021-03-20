@@ -1,0 +1,109 @@
+.Home{
+    font-family: 'Poppins', sans-serif;
+    .circle{
+        background-color: white;
+        width: 70vw;
+        height: 70vw;
+        border-radius: 100%;
+        position: absolute;
+        transform: translate(-50%, -60%);
+        left: 75vw;
+        animation: 0.5s ease-out 0s 1 glow;
+
+        @media (max-aspect-ratio: 16/8){
+            width: 80vw;
+            height: 80vw;
+            transform: translate(-50%, -60%);
+            animation: 0.5s ease-out 0s 1 glow2;
+        }
+
+        @keyframes glow{
+            0%{
+                opacity: 0;
+                width: 0vw;
+                height: 0vw;
+            }
+            100%{
+                opacity: 1;
+                width: 70vw;
+                height: 70vw;
+            }
+        }
+
+        @keyframes glow2{
+            0%{
+                opacity: 0;
+                width: 0vw;
+                height: 0vw;
+            }
+            100%{
+                opacity: 1;
+                width: 80vw;
+                height: 80vw;
+            }
+        }
+    }
+
+    #svg-icon{
+        position: absolute;
+        transform: translate(-100%, -100%);
+        top: calc(var(--vh, 1vh) * 100);
+        left: 100vw;
+        animation: 0.8s ease-out 0s 1 slideIn;
+
+        svg{
+            --scale: 40;
+            height: calc(var(--vh, 1vh) * var(--scale));
+            width: calc(784 * (var(--vh, 1vh) * var(--scale) / 702));
+        }
+
+        @keyframes slideIn{
+            0%{
+                left: 150vw;
+            }
+            60%{
+                left: 150vw;
+            }
+            100%{
+                left: 100vw;
+            }
+        }
+    }
+
+    &>.content{
+        width: 25%;
+        height: fit-content;
+        position: fixed;
+        transform: translateX(-50%);
+        left: calc(var(--navw) + 20%);
+        margin-top: calc(var(--navw) * 2.2);
+
+        h1{
+            color: var(--y);
+            font-weight: 600; 
+            font-size: 2.75vw;
+            margin: 0;
+        }
+
+        h2{
+            font-weight: 500; 
+            font-size: 2.5vw;
+            line-height: 3.5vw;
+            margin: 0;
+        }
+
+        p{
+            font-size: 1.025vw;
+        }
+
+        .order-btn{
+            background-color: var(--y);
+            font-weight: 700;
+            font-size: 1.025vw;
+            width: fit-content;
+            height: fit-content;
+            padding: 0.95vw 3vw 0.95vw 3vw;
+            border-radius: 3vw;
+        }
+    }
+}
