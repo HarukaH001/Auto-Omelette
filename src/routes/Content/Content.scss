@@ -110,6 +110,7 @@
                     &.disabled{
                         color: var(--b);
                         background-color: #E2DDD3;
+                        transition: background 0.75s;
                         &:hover{
                             cursor: default;
                         }
