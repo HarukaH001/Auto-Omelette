@@ -14,29 +14,49 @@ export const Content = () => {
     const [misc, setMisc] = useState([0,0,0])
     const [miscMax, setMM] = useState(0)
     useEffect(() => {
+        // console.log(price, egg, misc, miscMax)
         setPC(renderPC())
         setEC(renderEC())
         setMC(renderMC())
         // eslint-disable-next-line
-    },[price,egg,misc])
-    // useEffect(() => {
-    //     document.querySelector('.controller').addEventListener('contextmenu', e=>{
-
-    //     })
-    // },[])
+    },[price,egg,misc, miscMax])
+    function validation(){
+        let cost = egg * 10 + misc.reduce((a,b)=>a+b,0) * 5 + 10
+        let balance = price - cost
+        return balance===0?'':'disabled'
+    }
+    function confirmHandler(e){
+        if(!validation()){
+            console.log('confirm')
+        }
+    }
     function priceHandler(e, value){
         setPrice(value)
-        if(value === 20)
-        setEgg(1)
+        if(value <= 25){
+            setEgg(1)
+        }
+        setMisc([0,0,0])
     }
     function eggHandler(e, value, limit){
-        if(value * 5 + 15 <= price)
-        setEgg(value)
+        if(value * 10 + 10 <= price){
+            setEgg(value)
+        }
+        setMisc([0,0,0])
+        
     }
     function miscHandler(e, index){
         let temp = [...misc]
         if(misc.reduce((a, b) => a + b, 0) < miscMax)temp[index]++
         setMisc(temp)
+    }
+    function miscRHandler(e, index){
+        e.preventDefault()
+
+        let temp = [...misc]
+        if(misc[index] > 0) temp[index]--
+        setMisc(temp)
+
+        return false
     }
     function renderPC(){
         const LST = [20,25,30,35,40]
@@ -54,7 +74,7 @@ export const Content = () => {
         return LST.map(iter=>{
 
             return (
-                <div key={'e'+iter} className={"control-btn " + (egg===iter?'selected ':'') + (iter*5+15 > price?'disabled':'')} onClick={e => eggHandler(e, iter)}>
+                <div key={'e'+iter} className={"control-btn " + (egg===iter?'selected ':'') + (iter*10+10 > price?'disabled':'')} onClick={e => eggHandler(e, iter)}>
                     {iter} ฟอง
                 </div>
             )
@@ -62,11 +82,24 @@ export const Content = () => {
     }
     function renderMC(){
         const LST = ['หมูสับ', 'ไก่สับ', 'ผักรวม']
+
+        let cost = egg * 10 + misc.reduce((a,b)=>a+b,0) * 5 + 10
+        let balance = price - cost
+        setMM(balance / 5 + misc.reduce((a,b)=>a+b,0))
+
+        document.querySelectorAll('#mc').forEach((iter, idx)=>{
+            let width = iter.clientWidth
+            const {top, left} = iter.getBoundingClientRect()
+            document.documentElement.style.setProperty('--miscleft'+idx, `${width + left}px`);
+            document.documentElement.style.setProperty('--misctop'+idx, `${top}px`);
+        })
+
         return LST.map((iter, idx)=>{
 
             return (
-                <div key={'m'+idx} className={"control-btn " + (misc[idx]!==0?'selected ':'') + (misc.reduce((a, b) => a + b, 0) === miscMax?'disabled':'')} onClick={e => miscHandler(e, idx)}>
+                <div id="mc" key={'m'+idx} className={"control-btn " + (misc[idx]!==0?'selected ':'') + (misc.reduce((a, b) => a + b, 0) === miscMax?'disabled':'')} onClick={e => miscHandler(e, idx)} onContextMenu={e => miscRHandler(e, idx)}>
                     {iter}
+                    {misc[idx]!==0 && <div className={"counter"+idx}>{misc[idx]}</div>}
                 </div>
             )
         })
@@ -112,7 +145,7 @@ export const Content = () => {
                         <span>Sub Total</span>
                         <span>฿ {price}</span>
                     </div>
-                    <div className="confirm noselect">Confirm</div>
+                    <div className={"confirm noselect " + validation()} onClick={confirmHandler}>Confirm</div>
                 </footer>
             </div>
         </div>

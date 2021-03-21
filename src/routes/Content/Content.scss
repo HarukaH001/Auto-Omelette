@@ -104,13 +104,13 @@
                     &.selected{
                         background-color: var(--b);
                         color: var(--w);
-                        transition: background 0.75s;
+                        transition: background 0.5s;
                     }
 
-                    &.disabled{
+                    &:not(.selected).disabled{
                         color: var(--b);
                         background-color: #E2DDD3;
-                        transition: background 0.75s;
+                        transition: background 0.5s;
                         &:hover{
                             cursor: default;
                         }
@@ -118,6 +118,46 @@
 
                     &:hover{
                         cursor: pointer;
+                    }
+
+                    .counter0, .counter1, .counter2{
+                        position: fixed;
+                        top: var(--misctop0);
+                        z-index: 3;
+                        border-radius: 100%;
+                        width: calc(var(--navw) * 0.225);
+                        height: calc(var(--navw) * 0.225);
+                        transform: translate(-50%, -50%);
+                        color: var(--b);
+                        background-color: var(--y);
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1.025vw;
+                        font-weight: 700;
+                        line-height: 100%;
+                        animation: 0.1s ease-out 0s 1 fadeIn2;
+
+                        @keyframes fadeIn2 {
+                            0%{
+                                opacity: 0;
+                            }
+                            50%{
+                                opacity: 0;
+                            }
+                            100%{
+                                opacity: 100;
+                            }
+                        }
+                    }
+                    .counter0{
+                        left: var(--miscleft0);
+                    }
+                    .counter1{
+                        left: var(--miscleft1);
+                    }
+                    .counter2{
+                        left: var(--miscleft2);
                     }
                 }
             }
@@ -164,8 +204,17 @@
             font-size: 1vw;
             font-weight: 600;
             margin-top: 2vw;
+            transition: background 0.25s;
             &:hover{
                 cursor: pointer;
+            }
+
+            &.disabled{
+                background-color: #E2DDD3;
+                transition: background 0s;
+                &:hover{
+                    cursor: default;
+                }
             }
         }
     }
