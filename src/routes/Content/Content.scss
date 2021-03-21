@@ -1,6 +1,5 @@
 .Content{
     padding-left: calc(var(--navw) * 0.5);
-    padding-top: calc(var(--navw) * 0.25);
     animation: 0.25s ease-out 0s 1 fadeIn;
     @keyframes fadeIn{
         0%{
@@ -10,18 +9,163 @@
             opacity: 1;
         }
     }
-    
-    h1{
-        margin: 0;
-        font-size: 1.75vw;
-        font-weight: 600;
-        line-height: 2.5vw;
-    }
 
-    h2{
-        margin: 0;
-        font-size: 1vw;
-        font-weight: 400;
-        color: var(--p);
+    &>header{
+        padding-top: calc(var(--navw) * 0.25);
+        position: fixed;
+        z-index: 2;
+        h1{
+            margin: 0;
+            font-size: 1.75vw;
+            font-weight: 600;
+            line-height: 2.5vw;
+        }
+    
+        h2{
+            margin: 0;
+            font-size: 1vw;
+            font-weight: 400;
+            color: var(--p);
+        }
+    }
+    .controller{
+        position: fixed;
+        z-index: 2;
+        background-color: var(--w);
+        width: calc(30vw - var(--navw) * 0.8);
+        height: calc(100% - var(--navw) * 0.6);
+        right: 0;
+        top: 0;
+        animation: 0.2s ease-out 0s 1 slideIn2;
+        padding-top: calc(var(--navw) * 0.35);
+        padding-bottom: calc(var(--navw) * 0.25);
+        padding-left: calc(var(--navw) * 0.4);
+        padding-right: calc(var(--navw) * 0.4);
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        @keyframes slideIn2{
+            0%{
+                right: -35vw;
+            }
+            50%{
+                right: -35vw;
+            }
+            100%{
+                right: 0;
+            }
+        }
+
+        h3{
+            margin: 0;
+            font-size: 1.25vw;
+            font-weight: 600;
+            line-height: 2.5vw;
+        }
+    
+        h4{
+            margin: 0;
+            font-size: 0.9vw;
+            font-weight: 400;
+            color: var(--p);
+        }
+
+        .content{
+            flex: 1;
+            padding-top: 2vw;
+
+            .block{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                margin-bottom: 2vw;
+
+                span:nth-child(2){
+                    flex: 1;
+                }
+
+                .control-btn{
+                    color: var(--b);
+                    background-color: var(--w);
+                    border: 1px solid #E2DDD3;
+                    height: calc(var(--navw) * 0.35);
+                    padding-left: 0.75vw;
+                    padding-right: 0.75vw;
+                    margin-right: 0.75vw;
+                    display: inline-flex;
+                    align-items: center;
+                    border-radius: 0.4vw;
+                    font-size: 0.9vw;
+                    font-weight: 600;
+                    transition: background 0s;
+
+                    &.selected{
+                        background-color: var(--b);
+                        color: var(--w);
+                        transition: background 0.75s;
+                    }
+
+                    &.disabled{
+                        color: var(--b);
+                        background-color: #E2DDD3;
+                        &:hover{
+                            cursor: default;
+                        }
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            #c-ico{
+                font-size: calc(var(--navw) * 0.35);
+                width: 1em;
+                height: 1em;
+                color: var(--b);
+            }
+
+            span{
+                margin-left: 0.75vw;
+                font-size: 1vw;
+                font-weight: 500;
+            }
+        }
+
+        .total{
+            display: flex;
+            justify-content: space-between;
+            span{
+                display: inline-flex;
+                align-items: center;
+            }
+            span:nth-child(1){
+                font-size: 0.9vw;
+                font-weight: 400;
+            }
+            span:nth-child(2){
+                font-size: 1vw;
+                font-weight: 500;
+            }
+        }
+
+        .confirm{
+            width: 100%;
+            height: calc(var(--navw) * 0.5);
+            background-color: var(--y);
+            border-radius: 0.5vw;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1vw;
+            font-weight: 600;
+            margin-top: 2vw;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
 }

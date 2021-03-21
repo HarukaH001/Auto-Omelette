@@ -82,9 +82,17 @@ a{
     height: calc(var(--navw) * 0.60);
     border-radius: 10px;
     border: #E2DDD3 solid 1px;
+    transition: background 0s;
 
     &.selected {
       background-color: var(--y);
+      transition: background 0.75s;
+    }
+
+    &:not(.selected):hover{
+      width: 65%;
+      height: calc(var(--navw) * 0.65);
+      border-radius: 12px;
     }
   }
 }

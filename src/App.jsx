@@ -9,6 +9,10 @@ import bxsStoreAlt from '@iconify/icons-bx/bxs-store-alt';
 function App() {
   const [location, setLocation] = useState('home')
   useEffect(() => {
+    // window.addEventListener('contextmenu', e=>{
+    //     e.preventDefault()
+    //     return false
+    // })
     let navw = document.querySelector('nav').clientWidth
     document.documentElement.style.setProperty('--navw', `${navw}px`);
     let vh = window.innerHeight * 0.01;
@@ -49,7 +53,6 @@ function App() {
     if (location === 'home') {
       setTimeout(() => {
         let orderBtn = document.querySelector('#order')
-        console.log(document.getElementById('order'))
         if(orderBtn){
           orderBtn.addEventListener('click', () => {
             setLocation('content')
@@ -62,7 +65,7 @@ function App() {
   }, [location])
 
   return (
-    <div className="App">
+    <div className="App noselect">
       <Router>
         <div className="container">
           <nav>
