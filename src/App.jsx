@@ -5,9 +5,11 @@ import { MemoryRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { Iconly } from 'react-iconly';
 import bxsStoreAlt from '@iconify/icons-bx/bxs-store-alt';
+import partyPopper from '@iconify/icons-emojione/party-popper';
 
 function App() {
   const [location, setLocation] = useState('home')
+  const [show, setShow] = useState(false)
   useEffect(() => {
     window.addEventListener('contextmenu', e=>{
         e.preventDefault()
@@ -59,15 +61,44 @@ function App() {
           })
         }
       },100)
-      
+    }
+
+    if (location === 'content') {
+      setTimeout(() => {
+        let confirmBtn = document.querySelector('.confirm')
+        if(confirmBtn) {
+          confirmBtn.addEventListener('click', (e) => {
+            if(e.target.classList.contains('validated')){
+              setShow(true)
+            }
+          })
+        }
+      }, 100)
     }
 
   }, [location])
+
+  
+  function takeawayHandler(){
+    setShow(false)
+    setLocation('home')
+  }
 
   return (
     <div className="App noselect">
       <Router>
         <div className="container">
+          {show && <div className="modal-wrapper">
+              <div className="modal-container">
+                  <div className="modal-img"><Icon icon={partyPopper} id="pop-ico"/></div>
+                  <div className="non-img">
+                      <span>Your order is complete!</span>
+                      <Link to="/" className="confirm noselect" id="take-away" onClick={takeawayHandler}>
+                          Take Away
+                      </Link>
+                  </div>
+              </div>
+          </div>}
           <nav>
             <div>
               <Icon icon={bxsStoreAlt} id="main-ico" />

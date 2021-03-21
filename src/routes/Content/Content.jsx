@@ -23,12 +23,7 @@ export const Content = () => {
     function validation(){
         let cost = egg * 10 + misc.reduce((a,b)=>a+b,0) * 5 + 10
         let balance = price - cost
-        return balance===0?'':'disabled'
-    }
-    function confirmHandler(e){
-        if(!validation()){
-            console.log('confirm')
-        }
+        return balance===0?'validated':'disabled'
     }
     function priceHandler(e, value){
         setPrice(value)
@@ -107,7 +102,7 @@ export const Content = () => {
     return (
         <div className="Content">
             <div className="state-wrapper">
-                
+
             </div>
             <header>
                 <h1>Auto Omelettes</h1>
@@ -148,7 +143,7 @@ export const Content = () => {
                         <span>Sub Total</span>
                         <span>฿ {price}</span>
                     </div>
-                    <div className={"confirm noselect " + validation()} onClick={confirmHandler}>Confirm</div>
+                    <div className={"confirm noselect " + validation()}>Confirm</div>
                 </footer>
             </div>
         </div>
