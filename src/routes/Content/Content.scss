@@ -218,4 +218,12 @@
             }
         }
     }
+
+    .state-wrapper{
+        position: fixed;
+        z-index: 1;
+        left: var(--navw);
+        width: calc(70vw - var(--navw));
+        height: 100vh;
+    }
 }

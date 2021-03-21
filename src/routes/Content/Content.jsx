@@ -106,6 +106,9 @@ export const Content = () => {
     }
     return (
         <div className="Content">
+            <div className="state-wrapper">
+                
+            </div>
             <header>
                 <h1>Auto Omelettes</h1>
                 <h2>make by ไข่เจียว</h2>
