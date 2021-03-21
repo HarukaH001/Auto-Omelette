@@ -1,0 +1,27 @@
+.Content{
+    padding-left: calc(var(--navw) * 0.5);
+    padding-top: calc(var(--navw) * 0.25);
+    animation: 0.25s ease-out 0s 1 fadeIn;
+    @keyframes fadeIn{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    
+    h1{
+        margin: 0;
+        font-size: 1.75vw;
+        font-weight: 600;
+        line-height: 2.5vw;
+    }
+
+    h2{
+        margin: 0;
+        font-size: 1vw;
+        font-weight: 400;
+        color: var(--p);
+    }
+}
