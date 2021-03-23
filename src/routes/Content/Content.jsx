@@ -79,7 +79,7 @@ export const Content = () => {
         })
     }
     function renderMC(){
-        const LST = ['หมูสับ', 'ไก่สับ', 'ผักรวม']
+        const LST = ['หมูสับ', 'ไก่สับ']
 
         let cost = egg * 10 + misc.reduce((a,b)=>a+b,0) * 5 + 10
         let balance = price - cost
