@@ -29,11 +29,13 @@ export const Content = () => {
         setPrice(value)
         if(value <= 25){
             setEgg(1)
+        } else if(value === 40){
+            setEgg(2)
         }
         setMisc([0,0,0])
     }
     function eggHandler(e, value, limit){
-        if(value * 10 + 10 <= price){
+        if(value * 10 + 10 <= price && !(value===1&&price===40)){
             setEgg(value)
         }
         setMisc([0,0,0])
@@ -54,7 +56,7 @@ export const Content = () => {
         return false
     }
     function renderPC(){
-        const LST = [20,25,30,35,40]
+        const LST = [20,30,40]
         return LST.map(iter=>{
 
             return (
@@ -69,7 +71,7 @@ export const Content = () => {
         return LST.map(iter=>{
 
             return (
-                <div key={'e'+iter} className={"control-btn " + (egg===iter?'selected ':'') + (iter*10+10 > price?'disabled':'')} onClick={e => eggHandler(e, iter)}>
+                <div key={'e'+iter} className={"control-btn " + (egg===iter?'selected ':'') + (iter*10+10 > price || (price===40&&iter===1)?'disabled':'')} onClick={e => eggHandler(e, iter)}>
                     {iter} ฟอง
                 </div>
             )
@@ -80,7 +82,8 @@ export const Content = () => {
 
         let cost = egg * 10 + misc.reduce((a,b)=>a+b,0) * 5 + 10
         let balance = price - cost
-        setMM(balance / 5 + misc.reduce((a,b)=>a+b,0))
+        let mm = balance / 5 + misc.reduce((a,b)=>a+b,0)
+        setMM(mm > 2? 2: mm)
 
         document.querySelectorAll('#mc').forEach((iter, idx)=>{
             let width = iter.clientWidth
