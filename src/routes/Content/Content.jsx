@@ -49,8 +49,9 @@ export const Content = () => {
     function miscRHandler(e, index){
         e.preventDefault()
 
-        let temp = [...misc]
-        if(misc[index] > 0) temp[index]--
+        let temp = [0,0,0]
+        // let temp = [...misc]
+        // if(misc[index] > 0) temp[index]--
         setMisc(temp)
 
         return false
@@ -133,7 +134,7 @@ export const Content = () => {
                     </div>
                     <div className="block">
                         <Icon icon={broccoliIcon} id="c-ico"/>
-                        <span>เลือกเครื่อง&nbsp;&nbsp;( เลือกซ้ำได้ คลิกขวาเพื่อนำออก )</span>
+                        <span>เลือกเครื่อง&nbsp;&nbsp;( เลือกซ้ำได้ คลิกขวาเพื่อรีเซ็ท )</span>
                         <span></span>
                         <span>{misc.reduce((a, b) => a + b, 0) +' / ' + miscMax}</span>
                     </div>
