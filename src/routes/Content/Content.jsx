@@ -306,7 +306,6 @@ export const Content = () => {
     }
     function handleModelChange(changes) {
         if (diagramFT && diagram) {
-            highlightNode(1)
             updateDFA()
             setDFT(false)
         }
@@ -349,7 +348,7 @@ export const Content = () => {
             highlightNode(6)
         } else if (price === 40) {
             highlightNode(9)
-        } else {
+        } else if (price === 30) {
             if (egg === 2) {
                 highlightNode(7)
             } else {
@@ -441,74 +440,13 @@ export const Content = () => {
             
         }
 
-        let future = []
-        switch (state) {
-            case 1:
-                future = [1,3,4,5]
-                break
-            case 3:
-                future = [3,4,5,6]
-                break
-            case 4:
-                future = [3,4,5,7,8]
-                break
-            case 5:
-                future = [3,4,5,9]
-                break
-            case 6:
-                future = [2,6,8,9]
-                break
-            case 7:
-                future = [2,6,7,8,9]
-                break
-            case 8:
-                future = [6,7,8,9,10,11]
-                break
-            case 9:
-                future = [6,7,9,12,13]
-                break
-            case 10:
-                future = [8,10,14,15]
-                break
-            case 11:
-                future = [8,11,14,15]
-                break
-            case 12:
-                future = [9,12,16,17]
-                break
-            case 13:
-                future = [9,13,16,17]
-                break
-            case 14:
-                future = [2,14]
-                break
-            case 15:
-                future = [2,15]
-                break
-            case 16:
-                future = [2,16]
-                break
-            case 17:
-                future = [2,17]
-                break
-            default:
-                
-        }
-
         setPS(current_state)
         setCS(state)
 
         let prev = current_state
         let cur = state
-        let fut = future
-
-        // console.log('----')
-        // console.log(prev, cur, fut)
 
         highlightFuturePath(cur)
-        // fut.forEach(nextState=>{
-        //     highlightPath(cur, nextState)
-        // })
         highlightPath(prev, cur, "#00aa00", 3)
 
     }
