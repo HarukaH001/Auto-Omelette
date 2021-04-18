@@ -51,6 +51,8 @@ a{
     max-width: 120px;
     display: flex;
     flex-flow: column nowrap;
+    background-color: #F5F3F0;
+    z-index: 999;
 
     div, a{
       height: var(--navw);
