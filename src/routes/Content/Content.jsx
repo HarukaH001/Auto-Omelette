@@ -341,17 +341,16 @@ export const Content = () => {
         setDefaultColor()
         if(price !== 0){
             highlightNode(price / 10 + 1)
-            highlightNode(egg)
         }
 
-        if (price === 20) {
+        if (price === 20 && egg !== 0) {
             highlightNode(6)
-        } else if (price === 40) {
+        } else if (price === 40 && egg !== 0) {
             highlightNode(9)
         } else if (price === 30) {
             if (egg === 2) {
                 highlightNode(7)
-            } else {
+            } else if(egg === 1){
                 highlightNode(8)
             }
         }
@@ -370,7 +369,7 @@ export const Content = () => {
                 highlightNode(11)
                 highlightNode(15)
             }
-        } else {
+        } else if(egg === 2){
             // ไข่ 2
             if (misc[0] === 1)
                 highlightNode(lastMisc === 0 && misc[1] === 1 ? 16 : 12)
