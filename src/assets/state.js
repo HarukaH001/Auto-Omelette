@@ -34,7 +34,7 @@ export const links = [
     { from: 3, to: 4, text: "30 ", segmentIndex: 2, segmentFraction: 0.5, points: [245, -160.5, 245, 100] },
     { from: 3, to: 5, text: "40 ", segmentIndex: 2, segmentFraction: 0.5, points: [200, -180, -75, -180, -75, 320, 200, 320] },
     { from: 3, to: 6, text: "1 ฟอง", segmentIndex: 2, segmentFraction: 0.5 },
-    { from: 3, to: 3, text: "20, หมูสับ, ไก่สับ,\nConfirm, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [235, -200, 235, -250, 300, -250, 300, -190, 278, -190] },
+    { from: 3, to: 3, text: "20,2 ฟอง, หมูสับ, ไก่สับ,\nConfirm, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [235, -200, 235, -250, 300, -250, 300, -190, 278, -190] },
 
     { from: 4, to: 3, text: "20 ", segmentIndex: 2, segmentFraction: 0.5, points: [265, 100, 265, -160] },
     { from: 4, to: 5, text: "40 ", segmentIndex: 2, segmentFraction: 0.5, points: [250, 139, 250, 300] },
@@ -45,7 +45,7 @@ export const links = [
     { from: 5, to: 3, text: "20 ", segmentIndex: 2, segmentFraction: 0.5, points: [200, 330, -100, 330, -100, -190, 200, -190] },
     { from: 5, to: 4, text: "30 ", segmentIndex: 2, segmentFraction: 0.5, points: [220, 300, 220, 139] },
     { from: 5, to: 9, text: "2 ฟอง", segmentIndex: 2, segmentFraction: 0.5 },
-    { from: 5, to: 5, text: "40, หมูสับ, ไก่สับ,\nConfirm, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [230, 340, 230, 390, 210, 390, 210, 339] },
+    { from: 5, to: 5, text: "40,1 ฟอง, หมูสับ, ไก่สับ,\nConfirm, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [230, 340, 230, 390, 210, 390, 210, 339] },
 
     // Layer 3
     { from: 6, to: 3, text: "20", segmentIndex: 1, segmentFraction: 0.5, points: [450, -200,450,-300,210,-300,210,-200] },
@@ -101,7 +101,7 @@ export const links = [
     { from: 12, to: 16, text: "หมูสับ", segmentIndex: 1, segmentFraction: 0.5, points: [635, 300, 635, 280, 820, 280, 820, 300] },
     { from: 12, to: 17, text: "ไก่สับ", segmentIndex: 1, segmentFraction: 0.6, points: [] },
     { from: 12, to: 9, text: "2 ฟอง,Reset", segmentIndex: 2, segmentFraction: 0.5, points: [615, 300, 615, 280, 500, 280, 500, 310, 455, 310] },
-    { from: 12, to: 12, text: "Confirm", font: "600 8px Barlow, Athiti, sans-serif", segmentIndex: 1, segmentFraction: 0.2, points: [660, 339, 660, 355, 610, 355, 610, 339] },
+    { from: 12, to: 12, text: "1 ฟอง,Confirm", font: "600 8px Barlow, Athiti, sans-serif", segmentIndex: 1, segmentFraction: 0.2, points: [660, 339, 660, 355, 610, 355, 610, 339] },
 
     { from: 13, to: 3, text: "20", segmentIndex: 1, segmentFraction: 0.5},
     { from: 13, to: 4, text: "30", segmentIndex: 1, segmentFraction: 0.16,points: [600, 380, 550, 380,550,205,240,205,240,140]},
@@ -109,7 +109,7 @@ export const links = [
     { from: 13, to: 16, text: "หมูสับ", segmentIndex: 1, segmentFraction: 0.5, points: [675, 390, 715, 390, 715, 365, 810, 365, 810, 340] },
     { from: 13, to: 17, text: "ไก่สับ", segmentIndex: 1, segmentFraction: 0.5, points: [635, 410, 635, 430, 820, 430, 820, 410] },
     { from: 13, to: 9, text: "2 ฟอง,Reset", segmentIndex: 1, segmentFraction: 0.5, points: [615, 410, 615, 430, 500, 430, 500, 360, 420, 360, 420, 340] },
-    { from: 13, to: 13, text: "Confirm", segmentIndex: 1, segmentFraction: 0.2, points: [660, 410, 660, 455, 625, 455, 625, 410] },
+    { from: 13, to: 13, text: "1 ฟอง,Confirm", segmentIndex: 1, segmentFraction: 0.2, points: [660, 410, 660, 455, 625, 455, 625, 410] },
 
     // Layer 5
     { from: 14, to: 3, text: "20", segmentIndex: 1, segmentFraction: 0.5,points: [810,100,810,70,225,70,225,-160]},
@@ -132,14 +132,14 @@ export const links = [
     { from: 16, to: 4, text: "30", segmentIndex: 1, segmentFraction: 0.7, points: [800, 320, 750, 320,750,230,205,230,205,140]},
     { from: 16, to: 5, text: "40", segmentIndex: 1, segmentFraction: 0.5, points: [800, 330, 750, 330,750,355,240,355,240,340]},
     { from: 16, to: 2, text: "confirm", segmentIndex: 2, segmentFraction: 0.1, points: [890, 330, 1060, 330, 1060, 275, 1060, 70] },
-    { from: 16, to: 16, text: "หมูสับ, ไก่สับ", segmentIndex: 1, segmentFraction: 0.75, points: [890, 315, 900, 315, 900, 260, 840, 260, 840, 300] },
+    { from: 16, to: 16, text: "1 ฟอง,หมูสับ, ไก่สับ", segmentIndex: 1, segmentFraction: 0.70, points: [890, 315, 900, 315, 900, 260, 840, 260, 840, 300] },
     { from: 16, to: 9, text: "2 ฟอง, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [830, 300, 830, 270, 415, 270, 415, 300]},
 
     { from: 17, to: 3, text: "20", segmentIndex: 1, segmentFraction: 0.5, points: [800, 380, 770, 380,770,-140,300,-140,300,-175,275,-175]},
     { from: 17, to: 4, text: "30", segmentIndex: 1, segmentFraction: 0.5, points: [800, 400, 750, 400,750,230,210,230,210,140]},
     { from: 17, to: 5, text: "40", segmentIndex: 1, segmentFraction: 0.5, points: [810, 410, 810, 455,250,455,250,340]},
     { from: 17, to: 2, text: "confirm", segmentIndex: 2, segmentFraction: 0.1, points: [890, 387, 1037.5, 387, 1037, 380, 1037, 75] },
-    { from: 17, to: 17, text: "หมูสับ, ไก่สับ", segmentIndex: 1, segmentFraction: 0.75, points: [890, 400, 900, 400, 900, 450, 850, 450, 850, 410] },
+    { from: 17, to: 17, text: "1 ฟอง,หมูสับ, ไก่สับ", segmentIndex: 1, segmentFraction: 0.75, points: [890, 400, 900, 400, 900, 450, 850, 450, 850, 410] },
     { from: 17, to: 9, text: "2 ฟอง, Reset", segmentIndex: 1, segmentFraction: 0.5, points: [830, 410, 830, 480, 375, 480, 375, 330, 400, 330]},
 
     // Layer 6
