@@ -23,7 +23,7 @@ export const Content = () => {
     const [diagramFT, setDFT] = useState(true)
     const [current_state, setCS] = useState(997)
     const [previous_state, setPS] = useState(997)
-    const [dummy, dump] = useState(true)
+    const [dummy, dump] = useState(Date.now())
     useEffect(() => {
         // console.log(price, egg, misc, miscMax)
         setPC(renderPC())
@@ -44,14 +44,16 @@ export const Content = () => {
         setPrice(value)
         setEgg(0)
         setMisc([0, 0, 0])
-        dump(!dummy)
+        dump(Date.now())
     }
     function eggHandler(e, value, limit) {
         if (value * 10 + 10 <= price && !(value === 1 && price === 40)) {
             setEgg(value)
         }
-        setMisc([0, 0, 0])
-        dump(!dummy)
+        if(!(e.target.classList.contains('disabled') && egg === 2 && price === 40)){
+            setMisc([0, 0, 0])
+        }
+        dump(Date.now())
     }
     function miscHandler(e, index) {
         let temp = [...misc]
@@ -59,7 +61,7 @@ export const Content = () => {
         setMisc(temp)
         if(misc.reduce((a, b) => a + b, 0) !== 2)
         setLM(index)
-        dump(!dummy)
+        dump(Date.now())
     }
     function miscRHandler(e, index) {
         e.preventDefault()
@@ -68,7 +70,7 @@ export const Content = () => {
         // let temp = [...misc]
         // if(misc[index] > 0) temp[index]--
         setMisc(temp)
-        dump(!dummy)
+        dump(Date.now())
 
         return false
     }
@@ -119,6 +121,10 @@ export const Content = () => {
             )
         })
     }
+
+    function confirmHandler() {
+        updateDFA()
+    }
     // -------------------------------------------------Begin GoJS--------------------------------------------------------------------------
     const initDiagram = () => {
         const $ = go.GraphObject.make;
@@ -134,12 +140,6 @@ export const Content = () => {
                             linkKeyProperty: 'key'  // IMPORTANT! must be defined for merges and data sync when using GraphLinksModel
                         })
                 });
-        // diagram.layout =
-        //     $(go.LayeredDigraphLayout,  // this will be discussed in a later section
-        //         {
-        //             columnSpacing: 5,
-        //             setsPortSpots: false
-        //         });
 
         // define a simple Node template
         diagram.nodeTemplate =
@@ -539,7 +539,7 @@ export const Content = () => {
                         <span>Sub Total</span>
                         <span>฿ {price}</span>
                     </div>
-                    <div className={"confirm noselect " + validation()}>Confirm</div>
+                    <div className={"confirm noselect " + validation()} onClick={confirmHandler}>Confirm</div>
                 </footer>
             </div>
         </div>
